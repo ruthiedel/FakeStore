@@ -6,7 +6,7 @@ function Elelctronics() {
     const [data, setData] = React.useState([])
 
     React.useEffect(() => {
-        let data = localStorage.getItem("Electronics"); // שימו לב לשם המפתח
+        let data = localStorage.getItem("Electronics"); 
         let fiveMinutesAgo = null;
         let storedDate = null;
         const timeString = localStorage.getItem("Time");
@@ -18,15 +18,13 @@ function Elelctronics() {
             fiveMinutesAgo = new Date(currentDate.getTime() - 5 * 60 * 1000); 
         }
     
-        // בדיקת השוואה
         if (data && timeString && storedDate && storedDate.getTime() >= fiveMinutesAgo.getTime()) {
-            setData(JSON.parse(data)); // עדכון הנתונים מ-localStorage
+            setData(JSON.parse(data)); 
         } else {
-            // אם אין נתונים תקינים, קרא ל-fetchElectricity
             fetchElectricity()
                 .then(res => res.json())
                 .then(res => {
-                    setData(res); // עדכון הנתונים
+                    setData(res); 
                     localStorage.setItem('Electronics', JSON.stringify(res)); 
                     localStorage.setItem('Time', new Date().toISOString()); 
                 });

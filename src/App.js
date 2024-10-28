@@ -1,9 +1,9 @@
-import logo from './logo.svg';
 import './App.css';
 import { Link, Routes, Route } from'react-router-dom';
-import  Jewelery  from './Component/Jewelery/Jewelery.jsx';
-import Elelctronics from './Component/Electonics/Elelctronics.jsx';
-import Home from './Component/Home/Home.jsx';
+import  Jewelery  from './Pages/Jewelery/Jewelery.jsx';
+import Elelctronics from './Pages/Electonics/Elelctronics.jsx';
+import Home from './Pages/Home/Home.jsx';
+import Book from './Pages/Books/Book.jsx';
 function App() {
   return (
     <div className="App">
@@ -22,7 +22,7 @@ function App() {
 <li style={{ 
           marginRight: '20px' 
         }}>
-          <Link to="/Home" style={{ 
+          <Link to="/" style={{ 
             color: '#fff', 
             textDecoration: 'none', 
             fontSize: '18px',
@@ -69,14 +69,31 @@ function App() {
             Electronics
           </Link>
         </li>
-        
+        <li style={{ 
+          marginRight: '20px' 
+        }}>
+          <Link to="/books" style={{ 
+            color: '#fff', 
+            textDecoration: 'none', 
+            fontSize: '18px',
+            padding: '8px 12px',
+            borderRadius: '5px',
+            transition: 'background-color 0.3s ease' 
+          }}
+          onMouseEnter={(e) => e.target.style.backgroundColor = '#555'}
+          onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+          >
+            Books
+          </Link>
+        </li>
       </ul>
     </nav>
 
       <Routes>
         <Route path="/Jewelery" element={<Jewelery/>} />
         <Route path="/electronics" element={<Elelctronics/>} />
-        <Route path="/Home" element={<Home/>} />
+        <Route path="/books" element={<Book/>} />
+        <Route path="/" element={<Home/>} />
       </Routes>
     </div>
   );
